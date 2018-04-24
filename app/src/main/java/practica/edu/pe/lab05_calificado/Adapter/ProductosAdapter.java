@@ -9,16 +9,17 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import practica.edu.pe.lab05_calificado.Activities.DetailActivity;
-import practica.edu.pe.lab05_calificado.Models.Productos;
+import practica.edu.pe.lab05_calificado.Models.Producto;
 import practica.edu.pe.lab05_calificado.R;
 
 public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.ViewHolder>{
-    private List<Productos> producto;
+    private List<Producto> producto;
 
-    public void setProduct(List<Productos> product) {
+    public void setProduct(List<Producto> product) {
         this.producto = product;
     }
 
@@ -50,7 +51,7 @@ public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.View
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
 
-        final Productos prod = producto.get(position);
+        final Producto prod = producto.get(position);
         final int resId = holder.itemView.getContext().getResources().getIdentifier(prod.getPicture(), "drawable", holder.itemView.getContext().getPackageName()); //busca la imagen mediante el registro del adaptador people
         holder.Image.setImageResource(resId);
 
@@ -79,6 +80,8 @@ public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.View
         return producto.size();
     }
 
-
-
+    public void filterList(ArrayList<Producto> filterList){
+        producto = filterList;
+        notifyDataSetChanged();
+    }
 }

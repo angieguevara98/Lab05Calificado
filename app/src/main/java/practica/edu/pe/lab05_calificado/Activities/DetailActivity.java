@@ -54,28 +54,23 @@ public class DetailActivity extends AppCompatActivity {
 
     public void getIncomingIntent(){
 
-        if (getIntent().hasExtra("nameText")&& getIntent().hasExtra("nameimg")&& getIntent().hasExtra("namedis")&& getIntent().hasExtra("nameadr")&& getIntent().hasExtra("nameimg2")){
+        if (getIntent().hasExtra("nameText")&& getIntent().hasExtra("nameimg")&& getIntent().hasExtra("namedis")){
             String im=getIntent().getStringExtra("nameText");
 
             String img=getIntent().getStringExtra("nameimg");
             String imgdes=getIntent().getStringExtra("namedis");
-            String adress=getIntent().getStringExtra("nameadr");
-            Integer img2=getIntent().getIntExtra("nameimg2",2);
 
-            settext(im,img,imgdes,adress,img2);
+
+            settext(im,img,imgdes);
         }
     }
-    public void settext(String im, String img, String imgdes, String adress,Integer img2){
+    public void settext(String im, String img, String imgdes){
         TextView name=findViewById(R.id.textView2);
         name.setText(img);
         TextView name2=findViewById(R.id.text);
         name2.setText(im);
         TextView name3=findViewById(R.id.textInformation);
         name3.setText(imgdes);
-        TextView name4=findViewById(R.id.txtdireccion);
-        name4.setText(adress);
-        ImageView name5=findViewById(R.id.imagedetalle);
-        name5.setImageResource(img2);
 
 
     }

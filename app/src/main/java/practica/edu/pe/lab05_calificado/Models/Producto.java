@@ -1,7 +1,7 @@
 package practica.edu.pe.lab05_calificado.Models;
 
-public class Productos {
-    public Productos(String name, String phone, String picture, String descripcion) {
+public class Producto {
+    public Producto(String name, String phone, String picture, String descripcion) {
         this.name = name;
         this.phone = phone;
         this.picture = picture;
